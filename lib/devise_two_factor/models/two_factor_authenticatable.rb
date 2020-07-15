@@ -15,8 +15,8 @@ module Devise
         unless attr_encrypted?(:otp_secret)
           attr_encrypted :otp_secret,
             :key  => self.otp_secret_encryption_key,
-            :mode => :per_attribute_iv_and_salt unless self.attr_encrypted?(:otp_secret),
-            :encode => 'utf-8'
+            :encode => 'utf-8',
+            :mode => :per_attribute_iv_and_salt unless self.attr_encrypted?(:otp_secret)
         end
 
         attr_accessor :otp_attempt
